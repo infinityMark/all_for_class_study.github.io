@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap" rel="stylesheet">
+    <title>文言文随机</title>
 
     <style>
         body{
             font-family: 'Noto Sans HK', sans-serif;
+            /* font-family: 'Ma Shan Zheng', cursive; */
+            /* font-family: 'Noto Sans HK', sans-serif; */
         }
+        #head_line{margin-top: 20px;}
         .material-symbols-outlined {
             font-size: 40px;
             margin-right: 10px;
@@ -24,17 +29,13 @@
             'GRAD' 0,
             'opsz' 48
         }
-        #night{
-            /* display: inline; */
-            float: right;
-        }
+        #night{float: right;}
         #light{
             float: right;
             color: #ffffff;
             display: none;
         }
         #title_page{
-            /* display: inline; */
             margin-top: 0px;
             margin-left: 10px;
 
@@ -45,28 +46,63 @@
             color: #ffffff;
             display: none;
             float: left;
+
+            position: absolute;
+            /* transition-duration: 1s; */
+            top: 0%;
+            z-index: 999;
+        }
+        #b{
+            color: #ffffff;
+            display: none;
+            float: left;
+
+            position: absolute;
+            top: 0%;
+            margin-left: -140px;
+            z-index: 999;
         }
         #back{
             display: none;
             float: left;
-            margin-right: 20px;
-
+            /* margin-right: 20px; */
+            /* margin-top: 0px; */
+            
             color: #ffffff;
+            
+            position: absolute;
+            /* top: 0%; */
+            left: 76%;
+            z-index: 999;
         }
+        #tree{
+            width: 100%;
+            display: none;
+
+            /* float: right; */
+            /* margin-right: -11px; */
+            /* margin-top: 11px; */
+            
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 1;
+        }
+        
         
         #start_btn{
             width: 200px;
             height: 50px;
             background-color: #ffffff;
-            font-size: 20px;
-            /* margin-right: 20px; */
-            /* margin-left: 20px; */
-            margin-top: 20px;
+            font-size: 24px;
+            margin-top: 40px;
 
             border-radius: 20px;
             transition-duration: 0.4s;
 
             border: 3px solid #123B57;
+            /* color: #123B57; */
             
             position: absolute;
             top: 16%;
@@ -79,23 +115,17 @@
             height: 340px;
             background-color: #123B57;
             border-radius: 20px;
-            /* border-radius: 40px; */
             
             color: #ffffff;
-            /* text-align: center; */
 
             position: absolute;
-            top: 60%;
+            top: 62%;
             left: 50%;
             transform: translate(-50%,-50%);
             display: none;
         }
-        #random_c_chinese{
-            text-align: center;
-        }
-        #random_c_chinese_translate{
-            text-align: center;
-        }
+        #random_c_chinese{text-align: center;}
+        #random_c_chinese_translate{text-align: center;}
         #know{
             color:#85c257 ;
 
@@ -106,7 +136,7 @@
             bottom: 0%;
         }
         #unknow{
-            color:#e42232 ;
+            color:#e42232;
 
             display: none;
             position: absolute;
@@ -114,7 +144,6 @@
             float: right;
             bottom: 0%;
             right: 0%;
-            /* top: 90%; */
         }
         #next{
             display: none;
@@ -124,16 +153,53 @@
             right: 36%;
             bottom: 0%;
         }
-        #mark{
-            float: right;
-        }
+        #mark{float: right;}
         #random_c_chinese_paragraphs{
             position: absolute;
-            /* margin-right: 10px; */
-            text-align: center;
-            left: 38%;
+            top: 74%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        #tu{
+            width: 60px;
+            position: absolute;
+            top: 35%;
+            left: 17%;
+            transform: translate(-50%,-50%);
+
+            z-index: 999;
+            display: none;
+        }
+        #dog{
+            width: 80px;
+            position: absolute;
+            top: 35%;
+            right: 0%;
+            transform: translate(-30%,-50%);
+            
+            z-index: 999;
+            display: none;
+        }
+
+        #for_know_number{
+            color: #8be746;
+
+            position: absolute;
+            /* margin-left: 10px; */
+            float: left;
+            left: 10%;
             bottom: 0%;
-            /* right: 0%; */
+        }
+        #for_unknow_number{
+            /* display: none; */
+            color: #e42232;
+
+            position: absolute;
+            margin-right: 10px;
+            float: right;
+            bottom: 0%;
+            right: 10%;
         }
     </style>
 </head>
@@ -141,16 +207,20 @@
     <div id="head_line">
         <div id="other_page">
             <h1 id="title_page" style="border-left: 10px solid #123B57;">&nbsp;&nbsp;随机字词</h1>
-            <a href="study_resource.html"><h1 id="a">主页</h1></a>
-            <h1 id="back">返回</h1>
-            <!-- <h1>主页</h1> -->
+            <div id="move_choose">
+                <a href="https://cogito-ergo-sum.w3spaces.com/check_classical_chinese_final.html"><h1 id="a">查询</h1></a>
+                <a href="https://cogito-ergo-sum.w3spaces.com/artcle.html"><h1 id="b">课文</h1></a>
+                <h1 id="back">返回</h1>    
+            </div>    
+            <img src="https://raw.githubusercontent.com/infinityMark/-infinityMark.github.io/main/tree.png" alt="" id="tree">
         </div>
-        <!-- <select name="" id=""><a href="google.com"><option value="">ff</option></a></select> -->
         <span class="material-symbols-outlined" id="night">dark_mode</span>
         <span class="material-symbols-outlined" id="light">light_mode</span>
     </div>
 
     <button id="start_btn" onclick="start_random()">来吧</button>
+    <img src="https://raw.githubusercontent.com/infinityMark/-infinityMark.github.io/main/tu.png" alt="" id="tu">
+    <img src="https://raw.githubusercontent.com/infinityMark/-infinityMark.github.io/main/bulue_dog.png" alt="" id="dog">
     <div id="the_final_return">
         <h1 id="random_c_chinese"></h1>
         <h1 id="random_c_chinese_translate"></h1>
@@ -159,18 +229,35 @@
         <h2 id="next">下一个</h2>
         <h2 id="unknow">不知</h2>
     </div>
+    <div>
+        <h2 id="for_know_number"></h2>
+        <h2 id="know_unknow_company"></h2>
+        <h2 id="for_unknow_number"></h2>
+    </div>
 
     <script>
         let night=document.getElementById("night")
         let light=document.getElementById("light")
         let title_page=document.getElementById("title_page")
         let background_color=document.getElementById("background_color")
+        let dog=document.getElementById("dog")
+        let tu=document.getElementById("tu")
         let time="1s"
         let white="#ffffff"
         let dark="#1c1c1c"
 
-        let start_btn=document.getElementById("start_btn")
+        if(window.innerWidth==394 || window.innerWidth==393){
+            tu.style.display="flex"
 
+            dog.style.display="flex"
+        }
+        if(window.innerWidth==390 || window.innerWidth==391){
+            tu.style.display="flex"
+            tu.style.top="31%"
+        }
+
+        
+        let start_btn=document.getElementById("start_btn")
         night.addEventListener("click",function(){
             background_color.style.transitionDuration="1s"
             background_color.style.backgroundColor=dark
@@ -184,6 +271,7 @@
 
             start_btn.style.backgroundColor=dark
             start_btn.style.color=white
+
         })
         light.addEventListener("click",function(){
             background_color.style.transitionDuration="1s"
@@ -199,24 +287,119 @@
             start_btn.style.backgroundColor=white
             start_btn.style.color="#000000"
         })
-
+            
         function start_random(){
-            //         需要的函数
+            //         需要的函数   
+            //  二维矩阵   [],
+            // ["","","","","","","","",""],
+
             let classical_chinese_list=[
-                "惑","固","乎","闻","庸",""
+                //师说
+                ["惑","固","乎","闻","庸","嗟乎","传","出","犹且","下","耻","是故","益","其","身","惑矣","彼","句读","其道","遗"],
+                ["明","相师","相似","卑","羞","谀","复","不齿","乃","常","贤","贤于","专攻","好","经传","余","嘉","贻","隨意","歇"],
+                ["謫","守","越","通","和","具","乃","增","制","屬","予","之","予","勝","銜","浩浩湯湯","橫","際涯","暉","則"],
+                ["之","備","通","極","遷客","騷人","會","覽","得","無異","霪雨","霏霏","開","排","隱","耀","潛","形","傾","摧"],
+                ["或","空","寵","辱","嘗","求","或","為","以","物","斯","去","薄暮冥冥","讒","譏","然","景","集","郁郁","青青"],
+                ["解","徒","伴","將","及","期","邈","客","萬方多難","變","余","是","恒","惴憟","隙","施施","漫漫","日","徒","穷"],
+                //使得西山宴游记
+                ["遂","过","缘","斫","穷","然","垤","攒","蹙","遁","披","极","趣","觉","凡","有","始","因","始","异"],
+                ["际","培塿","俱","涯","造物者","穷","觞","至","至","犹","莫","日暮","聊","东去","风流","故","道","穿","拍","雪"],
+                // 诗三首和词三首
+                ["一时","初","雄姿英发","樯橹","华发","一尊","酹","乍","将息","乍暖还寒时候","敌","雁","却是","黄花","憔悴","损","堪","独自","黑","次第"],
+                ["盈盈","众里","度","蓦然","阑珊","当年","仁","久处","约","樂","东风","星","如","满","宝马","雕车","凤箫","玉壶","鱼龙舞","蛾儿雪柳黄金缕"],
+                //词三首
+                ["安仁","知","利","道","处","恶","去","去","恶","終食之間","违仁","造次","顛沛","必于是","克己復禮","哉","目","視","动","敏"],
+                ["事","斯","求生","杀身","成","孝","无违","御","对","谓","事","葬","祭","养","不敬","别","几","谏","志","从"],
+                ["违","劳","怨","年","知","喜","懼","重","威","固","忠","信","友","不如","憚","坦蕩蕩","戚戚","君子","已乎","省"],
+                ["疚","憂","懼","成","美","成","惡","反","是","恥","其言而過其行","義","質","行","孫/逊","信","成","病","能","病"],
+                ["知","求","求","向","始","志","是岁","辟","如使","莫","欲","得兼","舍","生","义","甚于","苟","恶","患"],
+                ["则","使","为","由是则生","是故","是","丧","弗","呼尔","己","廟堂","江湖","進","退","微","吾誰與歸","歸","已","謂"],
+                ["与","蹴尔","屑","辩","加","奉","得","鄉","今"],
+                //岳阳楼记
             ]
+
             let classical_chinese_traslate_list=[
-                "疑惑","一定"
+                //师说
+                ["疑惑","一定","在","知道","哪","唉","传授","超出","尚且","不如","为耻；羞耻","因此","更加","大概","他们自己","令人不解啊！","那","句子完结处和停顿处","人生道理","遗弃",],
+                ["明智","互相学习","差不多","低下","羞耻","阿谀奉承","恢复","不屑一提","竟然","固定","才智","有才能，贤良","各有专长","喜欢","正文和相关解释","我","嘉奖","赠送","任由","凋謝"],
+                ["被貶官/貶謫","出任太守/做太守","到了","通達/順和","和樂","全部/全都","於是","擴大","規模","囑咐/囑託","我","(重修岳陽樓)這件事","我","美好的/美麗的","張開口含着 (連結)","水勢洶湧/浩大/波瀾壯闊","寬闊/寬廣/廣闊","邊際","陽光","就是"],
+                ["的","完備/詳盡","通往/通向","通往/直達","被降職而遠調的官員","失意的文人","聚集","觀賞","能","不同/分別","連綿不斷的雨","雨水細的樣子","放晴","衝向","隱沒","光輝","隱沒/隱藏","行跡","傾倒","折斷",],
+                ["有時","消散","榮寵","屈辱","曾經","探求","或許","表現","因為","外在環境的好壞/順逆","這","離開","傍晚時天色昏暗","進讒/谗言","譏諷","的樣子","陽光","停歇/停息","香氣濃郁","花葉茂盛"],
+                ["會/懂得","只是","同伴","和"," 趁著","約定","遙遠","客居異鄉","多災多難;内忧外患","變幻不定","我","这个","时常","恐惧不安","空闲","慢慢地","漫无目的地 ","每天","同伴","走到尽头"],
+                //使得西山宴游记
+                ["于是","越过","沿着","砍伐","直到","……的样子","蚁穴外隆起的小土堆","聚集","堆积","逃遁","拨开","到的地方","通趋，往","睡醒","所有","游览过","曾经","由于","才","感到奇怪"],
+                ["相接","小土堆","融为一体","尽头","大自然","尽头","酒杯","到达","直到","仍然","不要","黃昏","姑且","向东边流去","杰出","昔日;旧时","传言;说","穿破","拍打","海浪"],
+
+                ["当时;那个年代;三国","刚","姿态雄伟;神采焕发","曹军战船;水师","花白的头发","盛酒的器皿","洒向","突然;忽然","保养身体","在天气忽冷忽热的时候","抵挡;抵御","(北方的)大雁;雁儿","原来","菊花","枯萎凋谢","极;非常","能够;可以","孤孤单单","天色转暗","光景"],
+                ["阵阵","人群中","次;回;遍","突然","零落;稀疏","壮年","仁德","长期身处于","穷困","安乐","春风","灯火;灯","好像","塞车;拥挤","名贵的马车","饰有雕花、彩绘的车","借代指各种音乐;箫的美称","白玉灯;明月","各种灯舞的表演","(头饰)佩戴蝴蝶形、柳条形头饰、系上金丝带"],
+                //词三首和论语
+                ["实践仁德","智慧","得到利益","正当的方法","接受","厌恶","摆脱","抛弃","怎样","吃完一顿饭的时间(短暂的时间)","违背仁德","仓促","受到挫折","必定坚持仁德","约束直接的私欲，使言行符合礼节","吗","条目","看","做","聪明;聪敏"],
+                ["实行","这","为了生存","牺牲生命","成全","孝道","不要违背礼节","驾驶马车","对他;回答","意思","侍奉","安葬","祭祀","供养(父母)","没有心存敬意","分别","委婉","劝谏","意见","听从"],
+                ["违背","担忧","怨恨","年龄","知道","开心","担忧","庄重","威严","牢固","忠心","诚信","结交","不及","害怕","(心胸)坦然宽广","忧愁恐惧","(什么是)君子","了吗","反省"],
+                ["内疚","忧愁","恐惧","成全","好事","促成","坏事","相反","这","羞耻","说得多，做的少;说了而没实行","合义","本质","实行","谦逊","诚恳","完成","担忧","才能","担忧"],
+                ["知道;赏识","要求","要求/苛求","以前","开始","记录","这一年","逃避","如果","没有","想要","同时得到","捨弃","生命","仁义","比……更重要","随便","讨厌","灾祸"],
+                ["那么","如果","做","可以求得生存的办法","所以","这种","失去","不","呼喝着","自己/個人的得失","朝廷","民間","做官","辭官隱退/不做官","沒有","我還可以歸依/跟從誰呢","歸依/跟從","停止","称为"],
+                ["给予","践踏着","洁净","分辨","好处","侍奉","感恩","过去","现在"],
+                //岳阳楼记
             ]
+            
             let random_c_chinese_paragraphs_list=[
-                "孰能无惑","固先乎吾","固先乎吾","其闻道也","夫庸知其年之先后",""
+                //师说
+                ["孰能无惑","固先乎吾","固先乎吾","其闻道也","夫庸知其年之先后","嗟乎！师道之不传也久矣！","嗟乎！师道之不传也久矣！","其出人也远矣","犹且从师而问焉","其下圣人也亦远矣","而耻学于师","是故圣益圣","是故圣益圣","其皆出于此乎？","于其身也，则耻师焉","惑矣！","彼童子之师","授之书而习其句读者","非吾所谓传其道解其惑者也","小学而大遗"],
+                ["吾未见其明也","不耻相师","彼与彼年相若也，道相似也","位卑则足羞","位卑则足羞","官盛则近谀","师道之不复，可知矣","巫医乐师百工之人，君子不齿","今其智乃反不能及","圣人无常师","郯子之徒，其贤不及孔子","师不必贤于弟子","闻道有先后，术业有专攻","好古文","六艺经传皆通习之","学于余","余嘉其能行古道","作《师说》以贻之","隨意春芳歇","隨意春芳歇"],
+                ["滕子京謫守巴陵郡","滕子京謫守巴陵郡","越明年","政通人和","政通人和","百廢具興","乃重修岳陽樓","增其舊制","增其舊制","屬予作文以記之","屬予作文以記之","屬予作文以記之","予觀夫巴陵勝狀","予觀夫巴陵勝狀","銜遠山","浩浩湯湯","橫無際涯","橫無際涯","朝暉夕陰","此則岳陽樓之大觀也"],
+                ["此則岳陽樓之大觀也","前人之述備矣","然則北通巫峽","南極瀟湘","遷客騷人","遷客騷人","多會於此","覽物之情","得無異乎","得無異乎","若夫霪雨霏霏","若夫霪雨霏霏","連月不開","濁浪排空","日星隱耀","日星隱耀","山岳潛形","山岳潛形","檣傾楫摧","檣傾楫摧",],
+                ["而或長煙一空","而或長煙一空","寵辱皆忘","寵辱皆忘","予嘗求古仁人之心","予嘗求古仁人之心","或異二者之為","或異二者之為","不以物喜","不以物喜","登斯樓也","則有去國懷鄉","薄暮冥冥","憂讒畏譏","憂讒畏譏","滿目蕭然","至若春和景明","沙鷗翔集","郁郁青青","郁郁青青"],
+                ["月既不解飲"," 影徒隨我身","暫伴月將影","暫伴月將影","行樂須及春","相期邈雲漢","相期邈雲漢","花近高樓傷客心","萬方多難此登臨","玉壘浮雲變古今","自余为僇人","居是州","恒惴憟","恒惴憟","其隙也","则施施而行","漫漫而游","日与其徒上高山","日与其徒上高山","穷回溪"],
+                //使得西山宴游记
+                ["遂命仆人","过湘江","缘染溪","斫榛莽","穷山之高而止","岈然洼然","若垤若穴","攒蹙累积","攒蹙累积","莫得遁隐","到则披草而坐","意有所极","梦亦同趣","觉而起","以为凡是州之山水有异态者","皆我有也","而未始知西山之怪特","因坐法华西亭","始指异之","始指异之"],
+                ["外与天际","不与培塿为类","悠悠乎与颢气俱","而莫得涯","洋洋乎与造物者游","而不知其所穷","引觞满酌","自远而至","至无所见","而犹不欲归","西山寇盜莫相侵","日暮聊為《梁父吟》","日暮聊為《梁父吟》","大江东去","千古风流人物","故垒西边，人道是","故垒西边，人道是","乱石穿空","惊涛拍岸","卷起千堆雪"],
+
+                ["一时多少豪杰","小乔初嫁了","雄姿英发","樯橹灰飞烟灭","多情应笑我，早生华发","一尊还酹江月","一尊还酹江月","乍暖还寒时候","最难将息","乍暖还寒时候","怎敌他、晚来风急！","雁过也，正伤心","却是旧时相识","满地黄花堆积","憔悴损，如今有谁堪摘？","憔悴损，如今有谁堪摘？","如今有谁堪摘?","独自怎生得黑!","独自怎生得黑!","这次第，怎一个愁字了得!"],
+                ["笑语盈盈暗香去","众里寻他千百度","众里寻他千百度","蓦然回首","灯火阑珊处","遥想公瑾当年","不仁者，不可以久處約","不可以久處約","不可以久處約","不可以長處樂","东风夜放花千树","东风夜放花千树","星如雨","宝马雕车香满路","宝马雕车香满路","宝马雕车香满路","凤箫声动","玉壶光转","一夜鱼龙舞","蛾儿雪柳黄金缕"],
+                //词三首
+                ["仁者安仁","知者利仁","知者利仁","不以其道得之","不處也","貧與賤,是人之所恶也","不以其道得之，不去也。","君子去仁","惡乎成名？","君子無終食之間違仁","君子無終食之間違仁","造次必於是","顛沛必於是","造次必於是，顛沛必於是","克己復禮為仁","而由人乎哉？","請問其目","非禮勿視","非禮勿動","回虽不敏"],
+                ["請事斯語矣","請事斯語矣","無求生以害仁","有殺身以成仁","有殺身以成仁","孟懿子問孝","子曰:「無違。」","樊遲御","孟孫問孝於我，我對曰，無違","樊遲曰:「何謂也？」","生事之以禮","死葬之以禮","祭之以禮","今之孝者，是謂能養","不敬，何以別乎!","不敬，何以別乎!","事父母几谏","事父母几谏","见志不从","见志不从"],
+                ["又敬不违","劳而不违","劳而不违","父母之年","不可不知也","一則以喜","一則以懼","君子不重則不威","君子不重則不威","學則不固","主忠信","主忠信","無友不如己者","無友不如己者","過則勿憚改","君子坦蕩蕩","小人長戚戚","司馬牛問君子","斯謂之君子已乎?","內省不疚"],
+                ["內省不疚","夫何憂何懼？","夫何憂何懼？","君子成人之美","君子成人之美","不成人之惡","不成人之惡","小人反是","小人反是","君子恥其言而過其行","君子恥其言而過其行","君子義以為質","君子義以為質","禮以行之","孫/逊 以出之","信以成之","信以成之","君子病無能焉","君子病無能焉","不病人之不己知也"],
+                ["不病人之不己知也","君子求諸己","小人求諸人","然后知吾向之未始游","游于是乎始","故为之文以志","是岁","故患有所不辟也","如使人之所欲莫甚于生","如使人之所欲莫甚于生","鱼，我所欲也","二者不可得兼","舍鱼而取熊掌也","生亦我所欲也","义亦我所欲","所欲有甚于生者","故不为苟得也","死亦我所恶","故患有所不辟也"],
+                ["则凡可以得生者，何不用也？","使人之所恶莫甚于死者","何不为也","由是则生而有不用也","是故所欲有甚于生者","非独贤者有是心也","贤者能勿丧耳","弗得则死","呼尔而与之","不以己悲","居廟堂之高","處江湖之遠","是進亦憂","退亦憂","微斯人","吾誰與歸(倒裝句)","吾誰與歸","是亦不可以已乎","此之谓失其本心"],
+                ["呼尔而与之","蹴尔而与之","乞人不屑也","万钟则不变礼仪而受之","万钟于我何加焉","妻妾之奉","所识穷乏者得我与","鄉为身死而不受","今为宫室之美而为之"],
+                //岳阳楼记
             ]
             
+            //测试
+            // let test_time=parseInt(11)
+            // console.log(classical_chinese_list.length)
+            // console.log(classical_chinese_traslate_list.length)
+            // console.log(random_c_chinese_paragraphs_list.length)
             
-            let classical_chinese_list_number=classical_chinese_list.length
-            let multiple=String(classical_chinese_list_number).length
-            let ten_multiple=(multiple-1)*10
+            //test random
+            // for (let index = 0; index <50; index++) {
+            //     console.log(parseInt(Math.random()*50))
+            // }
+            // if(classical_chinese_list.length==classical_chinese_traslate_list.length && classical_chinese_traslate_list.length==random_c_chinese_paragraphs_list.length){
+            //     console.log("0至"+(classical_chinese_list.length-1))
+            //     console.log("全部List数字都是一样")
+            //     for(let i=0;i<=classical_chinese_list.length-1;i++){
+            //         console.log(classical_chinese_list[i].length)
+            //         // console.log(classical_chinese_traslate_list[i].length)
+            //         // console.log(random_c_chinese_paragraphs_list[i].length)
+            //     }
+            // }
+            
+            // 0至10的数
+            let begin_choose=parseInt((Math.random())*17)
+            // let classical_chinese_list_number=classical_chinese_list.length
+            // let multiple=String(classical_chinese_list_number).length
+            // let ten_multiple=(multiple)*10
+            let ten_multiple=20
             let random_number=parseInt(Math.random()*ten_multiple)
+            // let test_number=parseInt((Math.random())*100)
+            // let random_number=classical_chinese_list_number-test_number
+            console.log(begin_choose)
+            console.log(random_number)
+
             let random_c_chinese_translate=document.getElementById("random_c_chinese_translate")
             let random_c_chinese=document.getElementById("random_c_chinese")
             let know=document.getElementById("know")
@@ -225,50 +408,144 @@
             let the_final_return=document.getElementById("the_final_return")
             let start_btn=document.getElementById("start_btn")
             let random_c_chinese_paragraphs=document.getElementById("random_c_chinese_paragraphs")
-            let time="1s"
-
-            // console.log(classical_chinese_list_number)
-            // console.log(multiple)
-            
+            let time="1s"            
             random_c_chinese_translate.style.display="none"
 
+            // setTimeout(try_a,1000)
+            // function try_a() {
+            //     // start_btn.style.transitionDuration=time
+            //     start_btn.style.color=white
+            //     start_btn.style.backgroundColor="#123B57"    
+            // }
+            
             know.style.display="flex"
             unknow.style.display="flex"
             the_final_return.style.display="block"
             start_btn.style.transitionDuration=time
             start_btn.innerText="下一个"
             
-            random_c_chinese.innerText=classical_chinese_list[random_number]
-            random_c_chinese_paragraphs.innerText=random_c_chinese_paragraphs_list[random_number]
-            
-            know.addEventListener("click",function(){
-                random_c_chinese_translate.style.display="block"
-                random_c_chinese_translate.innerText=classical_chinese_traslate_list[random_number]
-                // next.style.display="flex"
-            })
-            unknow.addEventListener("click",function(){
-                random_c_chinese_translate.style.display="block"
-                random_c_chinese_translate.innerText=classical_chinese_traslate_list[random_number]
-                // next.style.display="flex"
-            })
+            random_c_chinese.innerText=classical_chinese_list[begin_choose][random_number]
+            random_c_chinese_paragraphs.innerText=random_c_chinese_paragraphs_list[begin_choose][random_number]
+
+            random_c_chinese_paragraphs.style.transitionDuration=time
+            random_c_chinese_paragraphs.style.marginTop="50px"
+            // classical_chinese_traslate_list.splice(classical_chinese_traslate_list[random_number],1)
+            // random_c_chinese_paragraphs_list.splice(random_c_chinese_paragraphs_list[random_number],1)
+            // console.log(classical_chinese_list)
             // random_c_chinese_translate.style.display="none"
+
+            know.addEventListener("click",function(){
+                the_final_return.style.transitionDuration=time
+                the_final_return.style.rotate="20deg"
+                for_know_number.style.display="inline" 
+                
+                know.style.transitionDuration=time
+                know.style.display="none"
+                unknow.style.transitionDuration=time
+                unknow.style.display="none"               
+
+                setTimeout(test,1000)
+                function test(){
+                    random_c_chinese_translate.style.display="flex"
+                    random_c_chinese_translate.style.justifyContent="center"
+                    random_c_chinese_translate.style.alignItems="center"
+
+                    random_c_chinese_translate.style.display="block"
+                    random_c_chinese_translate.innerText=classical_chinese_traslate_list[begin_choose][random_number]
+                    the_final_return.style.transitionDuration=time
+                    the_final_return.style.rotate="0deg"
+                }
+                // next.style.display="flex"
+        })
+        unknow.addEventListener("click",function(){
+                // next.style.display="flex"
+                the_final_return.style.transitionDuration=time
+                the_final_return.style.rotate="20deg"
+                for_unknow_number.style.display="inline"
+
+                know.style.transitionDuration=time
+                know.style.display="none"
+
+                unknow.style.transitionDuration=time
+                unknow.style.display="none"
+                setTimeout(test,1000)
+                function test(){
+                    random_c_chinese_translate.style.display="flex"
+                    random_c_chinese_translate.style.justifyContent="center"
+                    random_c_chinese_translate.style.alignItems="center"
+
+                    random_c_chinese_translate.style.display="block"
+                    random_c_chinese_translate.innerText=classical_chinese_traslate_list[begin_choose][random_number]
+                    the_final_return.style.transitionDuration=time
+                    the_final_return.style.rotate="0deg"    
+                }
+        })
         }
 
+        let for_know_number=document.getElementById("for_know_number")
+        let for_unknow_number=document.getElementById("for_unknow_number")
+        let unknow_number=0
+        let know_number=0
+        let know_unknow_company=document.getElementById("know_unknow_company")
+            
+        know.addEventListener("click",function(){              
+                know_number=know_number+1
+                for_know_number.innerText=know_number
+                // console.log(know_number)
+                // next.style.display="flex"
+        })
+        unknow.addEventListener("click",function(){
+                // next.style.display="flex"
+                unknow_number=unknow_number+1
+                for_unknow_number.innerText=unknow_number
+        })
+
         let a=document.getElementById("a")
+        let b=document.getElementById("b")
         let back=document.getElementById("back")
+        let the_final_return=document.getElementById("the_final_return")
+        let tree=document.getElementById("tree")
         title_page.addEventListener("click",function(){
+            //切换回亮色模式
+            // if(the_final_return.style.display!="none"){
+            //     the_final_return.style.display="none"
+            // }
+            
+            background_color.style.transitionDuration="1s"
+            background_color.style.backgroundColor=white
+            night.style.color="#000000"
+            light.style.display="none"
+            night.style.display="flex"
+            title_page.style.transitionDuration=time
+            title_page.style.color="#000000"
+            start_btn.style.backgroundColor=white
+            start_btn.style.color="#000000"
+
             title_page.style.transitionDuration=time
             title_page.style.color=white
             title_page.style.marginTop="100px"
             title_page.style.fontSize="36px"
 
+            a.style.transitionDuration=time
             a.style.display="block"
-            a.style.marginTop="200px"
-            a.style.marginLeft="-140px"
+            // a.style.marginTop="200px"
+            
+            a.style.marginLeft="40px"
+            b.style.marginLeft="40px"
 
-            back.style.transitionDuration=time
+            b.style.transitionDuration=time
+            b.style.display="block"
+            
+
+            back.style.transitionDuration="0.8s"
             back.style.display="flex"
-            back.style.marginTop="100px"
+            setTimeout(test,10)
+            function test(){
+                back.style.marginTop="100px"
+                tree.style.bottom="-37%"    
+                a.style.top="30%"
+                b.style.top="40%"
+            }
             back.style.float="right"
 
             // title_page.style.float="none"
@@ -281,25 +558,88 @@
 
             start_btn.style.transitionDuration=time
             start_btn.style.display="none"
+            
+            the_final_return.style.transitionDuration=time
+            the_final_return.style.display="none"
+
+            dog.style.display="none"
+            tu.style.display="none"
+
+            for_know_number.style.display="none"
+            for_unknow_number.style.display="none"
+
+            tree.style.display="flex"
+            tree.style.transitionDuration=time
+            setTimeout(trees,400)
+            function trees(){
+                   
+            }
+            
+
+            // if(window.innerWidth==394 || window.innerWidth==393){
+            //     tree.style.marginBottom="-30px"
+            // }
         })
 
         back.addEventListener("click",function(){
+            let random_c_chinese=document.getElementById("random_c_chinese")
+            let random_c_chinese_translate=document.getElementById("random_c_chinese_translate")
             title_page.style.transitionDuration=time
             title_page.style.color="#000000"
             title_page.style.marginTop="0px"
             title_page.style.fontSize="26px"
 
             night.style.transitionDuration=time
-            night.style.display="flex"
-            back.style.display="none"
-
+            setTimeout(app,700)
+            function app(){
+                night.style.display="flex"    
+            }
+            
+            back.style.marginTop="0px"   
+            setTimeout(test,500)
+            function test(){
+                // back.style.top="0%"
+                back.style.display="none"
+                tree.style.marginTop="0px"
+                a.style.top="0%"
+                b.style.top="0%"
+            }
+            
             a.style.transitionDuration=time
             a.style.display="none"
+
+            b.style.transitionDuration=time
+            b.style.display="none"
 
             background_color.style.backgroundColor=white
 
             start_btn.style.display="block"
-            // start_btn.style.textAlign="center"
+
+            the_final_return.style.transitionDuration=time
+            the_final_return.style.display="flex"
+            
+            random_c_chinese.style.textAlign="center"
+            random_c_chinese.style.marginLeft="auto"
+            random_c_chinese.style.marginRight="auto"
+
+            random_c_chinese_translate.style.position="absolute"
+            random_c_chinese_translate.style.top="30%"
+            random_c_chinese_translate.style.left="40%"
+
+            for_know_number.style.display="flex"
+            for_unknow_number.style.display="flex"
+
+            tree.style.display="none"
+            
+            if(window.innerWidth==394 || window.innerWidth==393){
+                tu.style.display="flex"
+                dog.style.display="flex"
+            }
+            if(window.innerWidth==391 || window.innerWidth==390){
+                tu.style.display="flex"
+                dog.style.display="none"
+                
+            }
         })
     </script>
 </body>
